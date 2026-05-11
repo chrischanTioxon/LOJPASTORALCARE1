@@ -1,0 +1,1024 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Light of Jesus Pastoral Care - Compassionate Support & Care</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@300;400;600&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+        :root {
+            --color-primary:       #b721db;
+            --color-primary-light: #A4C3CE;
+            --color-primary-dark:  #5A7E8C;
+            --color-accent:        #E8B298;
+            --color-accent-light:  #F5D5C3;
+            --color-warm:          #F4E9E1;
+            --color-cream:         #FAF6F1;
+            --color-sage:          #C4D7C3;
+            --color-text:          #3A3A3A;
+            --color-text-light:    #6B6B6B;
+            --color-white:         #FFFFFF;
+            --font-display: 'Crimson Pro', serif;
+            --font-body:    'DM Sans', sans-serif;
+            --spacing-xs: 0.5rem;
+            --spacing-sm: 1rem;
+            --spacing-md: 2rem;
+            --spacing-lg: 4rem;
+            --spacing-xl: 6rem;
+            --shadow-soft:   0 4px 20px rgba(123, 158, 168, 0.1);
+            --shadow-medium: 0 8px 30px rgba(123, 158, 168, 0.15);
+            --transition:    all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: var(--font-body);
+            color: var(--color-text);
+            line-height: 1.7;
+            background-color: var(--color-cream);
+            overflow-x: hidden;
+        }
+
+        /* ── Navigation ── */
+        nav {
+            position: sticky;
+            top: 0; left: 0; right: 0;
+            background: rgba(255, 255, 255, 0.97);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 1rem 0;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.07);
+            animation: slideDown 0.6s ease-out;
+        }
+
+        @keyframes slideDown {
+            from { transform: translateY(-100%); opacity: 0; }
+            to   { transform: translateY(0);    opacity: 1; }
+        }
+
+        nav .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo img {
+            height: 50px;
+            width: auto;
+            object-fit: contain;
+            display: block;
+        }
+
+        /* Desktop nav links */
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--color-text);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            position: relative;
+            transition: var(--transition);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px; left: 0;
+            width: 0; height: 2px;
+            background: var(--color-primary);
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active { color: var(--color-primary); }
+
+        .nav-links a:hover::after,
+        .nav-links a.active::after { width: 100%; }
+
+        /* ── Hamburger button (mobile only) ── */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 4px;
+            z-index: 1100;
+        }
+
+        .hamburger span {
+            display: block;
+            width: 26px;
+            height: 2.5px;
+            background: var(--color-primary-dark);
+            border-radius: 3px;
+            transition: var(--transition);
+        }
+
+        /* Animate hamburger → X when open */
+        .hamburger.open span:nth-child(1) { transform: translateY(7.5px) rotate(45deg); }
+        .hamburger.open span:nth-child(2) { opacity: 0; }
+        .hamburger.open span:nth-child(3) { transform: translateY(-7.5px) rotate(-45deg); }
+
+        /* ── Mobile dropdown menu ── */
+        .mobile-menu {
+            display: none;
+            flex-direction: column;
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100vh;
+            background: rgba(255,255,255,0.98);
+            backdrop-filter: blur(12px);
+            z-index: 1050;
+            align-items: center;
+            justify-content: center;
+            gap: 2rem;
+            list-style: none;
+            animation: fadeIn 0.25s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; } to { opacity: 1; }
+        }
+
+        .mobile-menu.open { display: flex; }
+
+        .mobile-menu li a {
+            font-family: var(--font-display);
+            font-size: 1.8rem;
+            font-weight: 400;
+            color: var(--color-primary-dark);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .mobile-menu li a:hover { color: var(--color-primary); }
+
+        /* Close button inside mobile menu */
+        .mobile-menu-close {
+            position: absolute;
+            top: 1.2rem; right: 1.5rem;
+            background: none;
+            border: none;
+            font-size: 2rem;
+            color: var(--color-primary-dark);
+            cursor: pointer;
+            line-height: 1;
+        }
+
+        /* ── Hero Section ── */
+        .hero {
+            min-height: 70vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            background: linear-gradient(135deg, var(--color-cream) 0%, var(--color-warm) 100%);
+            overflow: hidden;
+            padding-top: 80px;
+        }
+
+        .hero-video {
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            object-fit: cover;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        .hero-video-overlay {
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: linear-gradient(
+                135deg,
+                rgba(30, 10, 60, 0.62) 0%,
+                rgba(90, 30, 100, 0.50) 50%,
+                rgba(20, 8, 40, 0.65) 100%
+            );
+            z-index: 1;
+        }
+
+        .hero .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            text-align: center;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(40px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+
+        .hero h1 {
+            font-family: var(--font-display);
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            font-weight: 400;
+            color: var(--color-primary-dark);
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+            letter-spacing: -1px;
+            animation: fadeInUp 1s ease-out 0.2s both;
+        }
+
+        .hero.has-video h1 {
+            color: #ffffff;
+            text-shadow: 0 2px 24px rgba(0,0,0,0.45);
+        }
+
+        .hero-subtitle {
+            font-size: 1.3rem;
+            color: var(--color-text-light);
+            margin-bottom: 3rem;
+            font-weight: 300;
+            animation: fadeInUp 1s ease-out 0.4s both;
+        }
+
+        .hero.has-video .hero-subtitle {
+            color: rgba(255,255,255,0.88);
+            text-shadow: 0 1px 12px rgba(0,0,0,0.35);
+        }
+
+        .hero.has-video .btn-secondary {
+            border-color: rgba(255,255,255,0.7);
+            color: #ffffff;
+        }
+
+        .hero.has-video .btn-secondary:hover {
+            background: rgba(255,255,255,0.18);
+            border-color: #ffffff;
+        }
+
+        /* ── Buttons ── */
+        .cta-group {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            animation: fadeInUp 1s ease-out 0.6s both;
+        }
+
+        .btn {
+            padding: 1rem 2.5rem;
+            border: none;
+            border-radius: 50px;
+            font-family: var(--font-body);
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background: var(--color-primary);
+            color: var(--color-white);
+            box-shadow: var(--shadow-soft);
+        }
+
+        .btn-primary:hover {
+            background: var(--color-primary-dark);
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-medium);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--color-primary-dark);
+            border: 2px solid var(--color-primary);
+        }
+
+        .btn-secondary:hover {
+            background: var(--color-primary);
+            color: var(--color-white);
+            transform: translateY(-3px);
+        }
+
+        /* ── Sections ── */
+        section {
+            padding: var(--spacing-xl) 0;
+            position: relative;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .section-tag {
+            display: inline-block;
+            padding: 0.5rem 1.5rem;
+            background: var(--color-accent-light);
+            color: var(--color-primary-dark);
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 1rem;
+        }
+
+        .section-title {
+            font-family: var(--font-display);
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            color: var(--color-primary-dark);
+            margin-bottom: 1rem;
+            font-weight: 400;
+            letter-spacing: -0.5px;
+        }
+
+        .section-description {
+            font-size: 1.2rem;
+            color: var(--color-text-light);
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.8;
+        }
+
+        /* ── Who We Are ── */
+        .who-content {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .who-content p {
+            font-size: 1.1rem;
+            line-height: 1.9;
+            margin-bottom: 1.5rem;
+        }
+
+        /* ── See More Toggle ── */
+        .see-more-content {
+            overflow: hidden;
+            max-height: 0;
+            opacity: 0;
+            transition: max-height 0.6s cubic-bezier(0.4,0,0.2,1), opacity 0.5s ease;
+        }
+
+        .see-more-content.expanded {
+            max-height: 2000px;
+            opacity: 1;
+        }
+
+        .see-more-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-top: 1rem;
+            padding: 0.6rem 1.6rem;
+            background: transparent;
+            color: var(--color-primary-dark);
+            border: 2px solid var(--color-primary);
+            border-radius: 50px;
+            font-family: var(--font-body);
+            font-size: 0.95rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .see-more-btn:hover {
+            background: var(--color-primary);
+            color: var(--color-white);
+            transform: translateY(-2px);
+        }
+
+        .see-more-btn .btn-arrow {
+            display: inline-block;
+            transition: transform 0.35s ease;
+        }
+
+        .see-more-btn.open .btn-arrow { transform: rotate(180deg); }
+
+        /* ── Donation Box ── */
+        .donation-box {
+            background: linear-gradient(135deg, var(--color-sage) 0%, var(--color-primary-light) 100%);
+            padding: 2.5rem;
+            border-radius: 20px;
+            margin-top: 3rem;
+            box-shadow: var(--shadow-soft);
+        }
+
+        .donation-box h3 {
+            font-family: var(--font-display);
+            font-size: 1.8rem;
+            color: var(--color-white);
+            margin-bottom: 1.5rem;
+            font-weight: 500;
+        }
+
+        .donation-methods {
+            display: flex;
+            gap: 2rem;
+            flex-wrap: wrap;
+            margin-top: 1.5rem;
+        }
+
+        .donation-method {
+            background: var(--color-white);
+            padding: 1.5rem;
+            border-radius: 12px;
+            flex: 1;
+            min-width: 200px;
+        }
+
+        .donation-method strong {
+            display: block;
+            color: var(--color-primary-dark);
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .donation-method span {
+            color: var(--color-text);
+            font-family: monospace;
+            font-size: 1rem;
+        }
+
+        /* ── Vision & Mission ── */
+        .vision-mission {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .vm-card {
+            background: linear-gradient(135deg, var(--color-primary-light) 0%, var(--color-primary) 100%);
+            padding: 3rem;
+            border-radius: 20px;
+            color: var(--color-white);
+            box-shadow: var(--shadow-medium);
+        }
+
+        .vm-card h3 {
+            font-family: var(--font-display);
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            font-weight: 500;
+        }
+
+        .vm-card p { font-size: 1.15rem; line-height: 1.8; opacity: 0.95; }
+
+        /* ── Services Grid ── */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1.5rem;
+            margin-top: 3rem;
+        }
+
+        .service-card {
+            background: var(--color-white);
+            padding: 2.5rem;
+            border-radius: 20px;
+            box-shadow: var(--shadow-soft);
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 4px;
+            background: linear-gradient(90deg, var(--color-primary) 0%, var(--color-accent) 100%);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: var(--transition);
+        }
+
+        .service-card:hover { transform: translateY(-8px); box-shadow: var(--shadow-medium); }
+        .service-card:hover::before { transform: scaleX(1); }
+
+        .service-icon {
+            width: 60px; height: 60px;
+            background: linear-gradient(135deg, var(--color-primary-light) 0%, var(--color-primary) 100%);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+        }
+
+        .service-card h3 {
+            font-family: var(--font-display);
+            font-size: 1.6rem;
+            color: var(--color-primary-dark);
+            margin-bottom: 1rem;
+            font-weight: 500;
+        }
+
+        .service-card p { color: var(--color-text-light); line-height: 1.7; margin-bottom: 1rem; }
+        .service-card ul { list-style: none; margin-top: 1rem; }
+
+        .service-card li {
+            color: var(--color-text);
+            padding-left: 1.5rem;
+            position: relative;
+            margin-bottom: 0.5rem;
+        }
+
+        .service-card li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--color-primary);
+            font-weight: bold;
+        }
+
+        /* ── What We Do ── */
+        #what-we-do {
+            background: linear-gradient(180deg, var(--color-cream) 0%, var(--color-white) 100%);
+        }
+
+        /* ── Footer ── */
+        footer {
+            background: var(--color-primary-dark);
+            color: var(--color-white);
+            padding: 4rem 0 2rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-section h4 {
+            font-family: var(--font-display);
+            font-size: 1.4rem;
+            margin-bottom: 1.5rem;
+            font-weight: 500;
+        }
+
+        .footer-section p,
+        .footer-section a {
+            color: rgba(255,255,255,0.8);
+            line-height: 1.8;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 0.5rem;
+            transition: var(--transition);
+        }
+
+        .footer-section a:hover { color: var(--color-white); padding-left: 5px; }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: rgba(255,255,255,0.6);
+            font-size: 0.9rem;
+        }
+
+        /* ── Scroll Animations ── */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+
+        .fade-in.visible { opacity: 1; transform: translateY(0); }
+
+        /* ── Floating Messenger ── */
+        .messenger-wrapper {
+            position: fixed;
+            bottom: 24px; right: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            z-index: 9999;
+        }
+
+        .chat-label {
+            background: white;
+            color: #333;
+            padding: 8px 14px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 600;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.15);
+            white-space: nowrap;
+        }
+
+        .messenger-float {
+            width: 52px; height: 52px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #0099FF, #A033FF);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            box-shadow: 0 4px 14px rgba(0,0,0,0.2);
+            transition: transform 0.2s;
+        }
+
+        .messenger-float:hover { transform: scale(1.1); }
+        .messenger-float i { font-size: 26px; }
+
+        /* ══════════════════════════════════
+           RESPONSIVE — Mobile
+        ══════════════════════════════════ */
+        @media (max-width: 768px) {
+            /* Hide desktop nav, show hamburger */
+            .nav-links  { display: none; }
+            .hamburger  { display: flex; }
+
+            .hero h1        { font-size: 2.2rem; }
+            .hero-subtitle  { font-size: 1rem; }
+
+            .cta-group      { flex-direction: column; align-items: center; }
+            .btn            { width: 100%; text-align: center; max-width: 320px; }
+
+            section         { padding: var(--spacing-lg) 0; }
+
+            .services-grid  { grid-template-columns: 1fr; }
+            .donation-methods { flex-direction: column; }
+            .vision-mission { grid-template-columns: 1fr; }
+        }
+
+        @media (max-width: 600px) {
+            .chat-label { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ── Facebook SDK ── -->
+    <div id="fb-root"></div>
+    <div id="fb-customer-chat" class="fb-customerchat"></div>
+
+    <!-- ── Floating Messenger Button ── -->
+    <div class="messenger-wrapper">
+        <span class="chat-label">Chat Us</span>
+        <a href="https://www.facebook.com/messages/t/129965193703080" target="_blank" class="messenger-float" aria-label="Chat on Messenger">
+            <i class="fa-brands fa-facebook-messenger"></i>
+        </a>
+    </div>
+
+    <!-- ══════════════════════════════════
+         NAVIGATION
+    ══════════════════════════════════ -->
+    <nav>
+        <div class="container">
+            <div class="logo">
+                <a href="#section1">
+                    <img src="LOJPCC.Webp" alt="Light of Jesus Pastoral Care Logo">
+                </a>
+            </div>
+
+            <!-- Desktop links -->
+            <ul class="nav-links">
+                <li><a href="#section1">Home</a></li>
+                <li><a href="#who-we-are">Who We Are</a></li>
+                <li><a href="#what-we-do">What We Do</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+
+            <!-- Hamburger (mobile only) -->
+            <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Mobile full-screen menu -->
+    <ul class="mobile-menu" id="mobileMenu" aria-hidden="true">
+        <button class="mobile-menu-close" id="mobileMenuClose" aria-label="Close menu">&times;</button>
+        <li><a href="#section1">Home</a></li>
+        <li><a href="#who-we-are">Who We Are</a></li>
+        <li><a href="#what-we-do">What We Do</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#contact">Contact</a></li>
+    </ul>
+
+    <!-- ══════════════════════════════════
+         HERO / HOME
+    ══════════════════════════════════ -->
+    <section class="hero has-video" id="section1">
+        <!--
+            Place your video file in the same folder as this HTML.
+            Replace filenames below with your actual video files.
+            Remove the <video> block to fall back to the gradient background.
+        -->
+        <video class="hero-video" autoplay muted loop playsinline preload="auto">
+            <source src="hero-bg.webm" type="video/webm">
+            <source src="Loj.mp4"      type="video/mp4">
+        </video>
+        <div class="hero-video-overlay"></div>
+
+        <div class="hero-content">
+            <h1>Light of Jesus<br>Pastoral Care</h1>
+            <p class="hero-subtitle">Compassionate support, psycho-spiritual care, and prayer intercessions for those in need</p>
+            <div class="cta-group">
+                <a href="#services" class="btn btn-primary">Our Services</a>
+                <a href="#contact"  class="btn btn-secondary">Connect With Us</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ══════════════════════════════════
+         WHO WE ARE
+    ══════════════════════════════════ -->
+    <section id="who-we-are">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Welcome</span>
+                <h2 class="section-title">Who We Are</h2>
+            </div>
+
+            <div class="who-content fade-in">
+                <p>Welcome to the <strong>Light of Jesus Pastoral Care</strong>. We are one of the Feast Mercy Ministries, under the Light of Jesus Family (founded by Bro. Bo Sanchez). Our mission is to journey with the burdened and distressed through psycho-spiritual care and support, and prayer intercessions.</p>
+
+                <!-- See More button -->
+                <button class="see-more-btn" id="whoSeeMoreBtn" onclick="toggleSeeMore()" aria-expanded="false">
+                    Read More <span class="btn-arrow">▼</span>
+                </button>
+
+                <!-- Hidden content -->
+                <div class="see-more-content" id="whoSeeMoreContent">
+                    <p>The Light of Jesus Pastoral Care Center is a mercy ministry founded by Bro. Bo Sanchez in 1993, of the Light of Jesus Family. Our mission is to nurture and empower people through pastoral care. We share Christ's light to those going through life crisis, and providing care that can help transform lives.</p>
+
+                    <p>It all began with a vision to care for God's hurting people. The dream was to set up a ministry that would share God's light to the lost, the broken, the emotionally and the spiritually wounded.</p>
+
+                    <p>Under the leadership of <strong>Bro Bo Sanchez</strong>, founder of the Light of Jesus Family, and six other volunteers — namely, Ditas and Vic Espanol, Cristy Galang, Avic Achaval, Babes Fontillas, and Janet Ealdama (+) — the <strong>Light of Jesus Counseling Center</strong> was born in <strong>July 1993</strong>. The group's first project was to set up a telephone hotline operated three hours once a week for people who needed a listening ear.</p>
+
+                    <p>Today, it continues to pursue that dream of sharing Christ through caring. Now called <strong>Light of Jesus Pastoral Care Center (LOJPCC)</strong>, its trained volunteer Pastoral Carers provide quality care and psycho-spiritual support to people going through rough times through telephone, email, online chat, and face-to-face sessions.</p>
+
+                    <p>While its operations have been affected by the pandemic, our Pastoral Carers work from home and continue to be compassionate companions journeying with those who need someone to walk with them during these trying times.</p>
+
+                    <p>In addition, the center offers psycho-spiritual-educational learning sessions that deal with life issues such as depression &amp; suicide, grief &amp; loss, inner healing, and other personal growth retreats.</p>
+                </div><!-- /.see-more-content -->
+
+                <p><strong>Our Services are Free.</strong> Your thoughtful <a href="#section2">Donation</a> to our ministry is much appreciated. 🙂</p>
+
+                <p>We are here to listen and journey with you! If you wish to proceed in scheduling a "Care Session" with our volunteer carers, we would like to get to know a bit about you so we can give you the needed help.</p>
+
+                <div class="vision-mission">
+                    <div class="vm-card">
+                        <h3>Vision Statement</h3>
+                        <p>A compassionate, Christ-centered community where every wounded soul finds hope, healing, and renewed purpose through authentic care, connection, and faith.</p>
+                    </div>
+                    <div class="vm-card">
+                        <h3>Mission Statement</h3>
+                        <p>To provide accessible and compassionate psycho-spiritual support by listening deeply, journeying with individuals in their struggles, and guiding them toward healing, resilience, and a deeper encounter with God's love — through care sessions, prayer, formation, and meaningful connections.</p>
+                        <div id="section2"></div>
+                    </div>
+                </div>
+
+                <div class="donation-box">
+                    <h3>Support Our Ministry</h3>
+                    <p style="color:var(--color-white); margin-bottom:1rem;">We are a mercy ministry operating on donations. Our services are free. We appreciate any amount you wish to donate:</p>
+                    <div class="donation-methods">
+                        <div class="donation-method">
+                            <strong>GCASH</strong>
+                            <span>0917-1453756</span>
+                        </div>
+                        <div class="donation-method">
+                            <strong>BDO</strong>
+                            <span>003978017257</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ══════════════════════════════════
+         WHAT WE DO
+    ══════════════════════════════════ -->
+    <section id="what-we-do">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Our Mission</span>
+                <h2 class="section-title">What We Do</h2>
+                <p class="section-description">LOJ Pastoral Care provides Psycho-Spiritual Support for individuals going through difficulties. Volunteers are trained in Psychological First Aid.</p>
+            </div>
+
+            <div class="who-content fade-in">
+                <p>Our sessions are focused on helping the person stabilize their emotional state, facilitate some insights to better handle the situation and see the Light of Jesus amidst their concerns. <strong>Our Care Sessions do not include or replace psychological diagnosis or treatment.</strong></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ══════════════════════════════════
+         SERVICES
+    ══════════════════════════════════ -->
+    <section id="services">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">How We Help</span>
+                <h2 class="section-title">Our Services</h2>
+                <p class="section-description">Free and confidential support available Monday to Saturday</p>
+            </div>
+
+            <div class="services-grid">
+                <div class="service-card fade-in">
+                    <div class="service-icon">👂</div>
+                    <h3>We Listen</h3>
+                    <p><strong>Need to Talk? We Listen. We Care.</strong></p>
+                    <p>Our Pastoral Carers provide a listening ear to those going through difficulties. Our services are free and confidential.</p>
+                    <p><strong>Available:</strong> Mondays to Saturdays, 8:00 AM to 10:00 PM</p>
+                </div>
+
+                <div class="service-card fade-in">
+                    <div class="service-icon">📚</div>
+                    <h3>We Enrich</h3>
+                    <p>We conduct workshops and seminars:</p>
+                    <ul>
+                        <li>Psycho-spiritual and psycho-educational workshops</li>
+                        <li>Mental well-being and wellness programs</li>
+                        <li>Training in Christ-centered care</li>
+                        <li>Skills development for organizations</li>
+                    </ul>
+                </div>
+
+                <div class="service-card fade-in">
+                    <div class="service-icon">🙏</div>
+                    <h3>We Pray</h3>
+                    <p>Our Pastoral Carers are ready to intercede for all of your prayer requests.</p>
+                    <p>Send your prayer requests via email, SMS, or through our contact form.</p>
+                </div>
+
+                <div class="service-card fade-in">
+                    <div class="service-icon">🤝</div>
+                    <h3>We Connect</h3>
+                    <p>We guide and refer you to the help resource appropriate to your needs.</p>
+                    <p>Our network of support ensures you receive the best care possible.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ══════════════════════════════════
+         FOOTER / CONTACT
+    ══════════════════════════════════ -->
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Light of Jesus Pastoral Care</h4>
+                    <p>A Christ-Centered ministry for life transformation, nurturing &amp; empowering people through pastoral care.</p>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Contact Us</h4>
+                    <a href="mailto:lojpastoralcare@gmail.com">lojpastoralcare@gmail.com</a>
+                    <p>Mon–Fri: +639231323071</p>
+                    <p>Mon–Fri: +639157765326</p>
+                    <p>Saturday: +639511076323</p>
+                    <p>Saturday: +639957112537</p>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Hours</h4>
+                    <p>Monday to Saturday</p>
+                    <p>8:00 AM – 10:00 PM</p>
+                    <p style="margin-top:1rem;">Free and Confidential Services</p>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2025 Light of Jesus Pastoral Care. Part of Light of Jesus Family, founded by Bro. Bo Sanchez. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ══════════════════════════════════
+         SCRIPTS
+    ══════════════════════════════════ -->
+    <script>
+        /* ── Hamburger / Mobile Menu ── */
+        const hamburger    = document.getElementById('hamburger');
+        const mobileMenu   = document.getElementById('mobileMenu');
+        const mobileClose  = document.getElementById('mobileMenuClose');
+
+        function openMenu() {
+            mobileMenu.classList.add('open');
+            hamburger.classList.add('open');
+            hamburger.setAttribute('aria-expanded', 'true');
+            mobileMenu.setAttribute('aria-hidden', 'false');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeMenu() {
+            mobileMenu.classList.remove('open');
+            hamburger.classList.remove('open');
+            hamburger.setAttribute('aria-expanded', 'false');
+            mobileMenu.setAttribute('aria-hidden', 'true');
+            document.body.style.overflow = '';
+        }
+
+        hamburger.addEventListener('click', openMenu);
+        mobileClose.addEventListener('click', closeMenu);
+
+        // Close menu when any mobile link is clicked
+        mobileMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', closeMenu);
+        });
+
+        /* ── See More / See Less toggle ── */
+        function toggleSeeMore() {
+            const content = document.getElementById('whoSeeMoreContent');
+            const btn     = document.getElementById('whoSeeMoreBtn');
+            const isOpen  = content.classList.toggle('expanded');
+            btn.classList.toggle('open', isOpen);
+            btn.setAttribute('aria-expanded', isOpen);
+            btn.innerHTML = isOpen
+                ? 'Read Less <span class="btn-arrow">▼</span>'
+                : 'Read More <span class="btn-arrow">▼</span>';
+        }
+
+        /* ── Smooth scrolling ── */
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    e.preventDefault();
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+
+        /* ── Scroll fade-in animations ── */
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) entry.target.classList.add('visible');
+            });
+        }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+        /* ── Active nav link on scroll ── */
+        window.addEventListener('scroll', () => {
+            const sections       = document.querySelectorAll('section[id]');
+            const scrollPosition = window.scrollY + 100;
+            sections.forEach(section => {
+                const top    = section.offsetTop;
+                const height = section.offsetHeight;
+                const id     = section.getAttribute('id');
+                if (scrollPosition >= top && scrollPosition < top + height) {
+                    document.querySelectorAll('.nav-links a').forEach(link => {
+                        link.classList.remove('active');
+                        if (link.getAttribute('href') === `#${id}`) link.classList.add('active');
+                    });
+                }
+            });
+        });
+
+        /* ── Facebook Customer Chat SDK ── */
+        (function initFBChat() {
+            const chatbox = document.getElementById('fb-customer-chat');
+            if (!chatbox) return;
+            chatbox.setAttribute('page_id', 'YOUR_PAGE_ID');
+            chatbox.setAttribute('attribution', 'biz_inbox');
+
+            window.fbAsyncInit = function () {
+                FB.init({ xfbml: true, version: 'v18.0' });
+            };
+
+            (function (d, s, id) {
+                if (d.getElementById(id)) return;
+                const js  = d.createElement(s);
+                js.id     = id;
+                js.src    = 'https://connect.facebook.net/en_US/sdk/xfbml.customerchat.js';
+                d.getElementsByTagName(s)[0].parentNode.insertBefore(js, d.getElementsByTagName(s)[0]);
+            }(document, 'script', 'facebook-jssdk'));
+        })();
+    </script>
+
+</body>
+</html>
