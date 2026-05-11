@@ -388,18 +388,19 @@
         .see-more-btn {
             display: inline-flex;
             align-items: center;
-            gap: 0.5rem;
-            margin-top: 1rem;
-            padding: 0.6rem 1.6rem;
+            gap: 0.3rem;
+            margin-left: 0.3rem;
+            padding: 0.2rem 0.9rem;
             background: transparent;
-            color: var(--color-primary-dark);
-            border: 2px solid var(--color-primary);
+            color: var(--color-primary);
+            border: 1.5px solid var(--color-primary);
             border-radius: 50px;
             font-family: var(--font-body);
-            font-size: 0.95rem;
+            font-size: 0.88rem;
             font-weight: 600;
             cursor: pointer;
             transition: var(--transition);
+            vertical-align: middle;
         }
 
         .see-more-btn:hover {
@@ -693,7 +694,7 @@
         <div class="container">
             <div class="logo">
                 <a href="#section1">
-                    <img src="LOJPCC.Webp" alt="Light of Jesus Pastoral Care Logo">
+                    <img src="LOJPCC.webp" alt="Light of Jesus Pastoral Care Logo">
                 </a>
             </div>
 
@@ -760,12 +761,7 @@
             </div>
 
             <div class="who-content fade-in">
-                <p>Welcome to the <strong>Light of Jesus Pastoral Care</strong>. We are one of the Feast Mercy Ministries, under the Light of Jesus Family (founded by Bro. Bo Sanchez). Our mission is to journey with the burdened and distressed through psycho-spiritual care and support, and prayer intercessions.</p>
-
-                <!-- See More button -->
-                <button class="see-more-btn" id="whoSeeMoreBtn" onclick="toggleSeeMore()" aria-expanded="false">
-                    Read More <span class="btn-arrow">▼</span>
-                </button>
+                <p>Welcome to the <strong>Light of Jesus Pastoral Care</strong>. We are one of the Feast Mercy Ministries, under the Light of Jesus Family (founded by Bro. Bo Sanchez). Our mission is to journey with the burdened and distressed through psycho-spiritual care and support, and prayer intercessions. <button class="see-more-btn" id="whoSeeMoreBtn" onclick="toggleSeeMore()" aria-expanded="false">See More... <span class="btn-arrow">▼</span></button></p>
 
                 <!-- Hidden content -->
                 <div class="see-more-content" id="whoSeeMoreContent">
@@ -957,8 +953,8 @@
             btn.classList.toggle('open', isOpen);
             btn.setAttribute('aria-expanded', isOpen);
             btn.innerHTML = isOpen
-                ? 'Read Less <span class="btn-arrow">▼</span>'
-                : 'Read More <span class="btn-arrow">▼</span>';
+                ? 'See Less <span class="btn-arrow">▼</span>'
+                : 'See More... <span class="btn-arrow">▼</span>';
         }
 
         /* ── Smooth scrolling ── */
