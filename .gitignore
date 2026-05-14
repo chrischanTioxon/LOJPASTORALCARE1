@@ -36,8 +36,9 @@ node_modules/
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
-package-lock.json
-yarn.lock
+# Lockfiles are now tracked since we have dependencies
+# package-lock.json
+# yarn.lock
 
 # ── Environment / secrets ──
 .env

@@ -1,0 +1,16 @@
+{
+  "name": "lojpastoralcare",
+  "version": "1.0.0",
+  "description": "Light of Jesus Pastoral Care - Compassionate Support & Care",
+  "scripts": {
+    "dev": "npx serve .",
+    "build": "echo 'Static site - no build required'",
+    "lint": "echo 'No linter configured'"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "@vercel/speed-insights": "^1.0.17"
+  }
+}
